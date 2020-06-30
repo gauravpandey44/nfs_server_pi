@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  nfs:
+    image: itsthenetwork/nfs-server-alpine:latest
+    volumes:
+    - ~/NFS:/nfsshare
+    network_mode: host
+    environment:
+    - SHARED_DIRECTORY=/nfsshare
+    privileged: true
+    restart: always
