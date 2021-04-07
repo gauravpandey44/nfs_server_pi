@@ -1,7 +1,7 @@
 pipeline {
   
     agent {
-      label 'contabo_production' 
+      label 'PI' 
     }  
   
      environment {
@@ -14,8 +14,8 @@ pipeline {
                steps {
 
                     sh(""" 
-                    mkdir -p /home/${USER}/PRODUCTION/dockers/${REPO}
-                    cp -p ${WORKSPACE}/* /home/${USER}/PRODUCTION/dockers/${REPO}/
+                    mkdir -p /home/${USER}/${NODE_NAME}/dockers/${REPO}
+                    cp -p ${WORKSPACE}/* /home/${USER}/${NODE_NAME}/dockers/${REPO}/
                     """)
 
                   }
@@ -33,7 +33,7 @@ pipeline {
             steps {
 
                   sh("""
-                  cd /home/${USER}/PRODUCTION/dockers/${REPO}/
+                  cd /home/${USER}/${NODE_NAME}/dockers/${REPO}/
                   docker-compose up -d
                   """)
             }

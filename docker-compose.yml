@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   nfs:
-    image: itsthenetwork/nfs-server-alpine:latest
+    image: itsthenetwork/nfs-server-alpine:latest-arm
     volumes:
     - ~/NFS:/nfsshare
     network_mode: host
